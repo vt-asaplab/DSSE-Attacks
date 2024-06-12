@@ -10,7 +10,7 @@ Next, install NumPy and SciPy into your virtual environment.
 
 Run the experiments using the command below. This will take a long time - we recommend running the experiments overnight.
 
-  python3 automate_experiments.py
+    python3 automate_experiments.py
 
 The experiments run in the order that they are listed in the `exp_settings.csv` file.
 As experiments are completed, you will see intermediate result files appear in the `experiment_results/` directory.
@@ -23,7 +23,7 @@ Before the results can be graphed, we have an intermediate processing step to co
 
 Run the following command:
 
-  python3 output_to_graph_format.py
+    python3 output_to_graph_format.py
 
 You should see 10 files appear in the `results_for_latex` directory.
 
