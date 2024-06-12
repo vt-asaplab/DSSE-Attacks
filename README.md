@@ -4,7 +4,9 @@ This repository contains the code used to simulate the attacks presented in our 
 
 # Running the Experiments
 
-First, download the code into the environment that you would like to run the attacks. We use Linux-style paths which may break on Windows.
+First, download the code into the environment that you would like to run the attacks.
+
+Unzip `datasets.zip` directly into your working directory. Your working directory should be flat after this step.
 
 Next, install NumPy and SciPy into your virtual environment.
 
@@ -34,6 +36,8 @@ Open `main.tex` in your favorite LaTeX editor, such as OverLeaf. Drop the `resul
 Compile `main.tex` and view the results of the graphs. We use constant values in 4 places in the figures; please Ctrl-F for "Constant" and verify that each of the values match the results from your `eta_mu.txt`. If not, replace those constants with the values you have.
 
 # Notes
+
+We use Linux-style paths which may break on Windows. We recommend running the experiment code in a fairly strong Linux environment. Multithreading could speed up the experiments, but we do not have plans to implement it.
 
 We have wrapped the logic used to generate our paper's experimental results to automate our previously-tedious workflow; the result is the code in this repo. The intent and make it user-friendly for readers to verify our results. We have done some testing to make sure that the code in this repository works, but we expect this process to have introduced some bugs. If you run into bugs or crashes, please don't spend your time trying to fix them - report them to jacobshalt(at)vt(dot)edu and we will do our best to fix them promptly.
 
