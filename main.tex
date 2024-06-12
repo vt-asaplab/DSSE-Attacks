@@ -1,0 +1,541 @@
+\documentclass{article}
+
+\usepackage{amsmath, amsthm, bm}
+\usepackage{pgfplots}
+
+% Settings
+\pgfplotsset{compat=1.9}
+
+% Commands
+\newcommand{\uf}{$\mathsf{UF}$ }
+\newcommand{\spuf}{$\mathsf{SP\text{+}UF}$ }
+\newcommand{\ufid}{$\mathsf{UFID}$ }
+\newcommand{\spufid}{$\mathsf{SP\text{+}UFID}$ }
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+\begin{document}
+
+\begin{figure}[t]
+\centering
+\begin{minipage}{0.45\columnwidth}
+\centering
+\begin{tikzpicture}[scale=0.7]
+\begin{axis}[
+    xlabel = Avg. Number of Searches and Updates per Week ($\Bar{\eta}$\text{,} $\Bar{\mu}$),
+    ylabel = Attack Accuracy,
+    xtick={10,250,500,750,1000},
+    xticklabels={$10$,$250$,$500$,$750$,$1000$},
+    legend cell align={left},
+    legend style={legend pos=south east, nodes={scale=0.8, transform shape}}
+]
+\addplot[
+color=orange,
+mark=x,
+]
+table[x=eta_mu,y=avg_s_acc]
+{results_for_latex/eta_mu.txt};
+\addlegendentry{Search Frequency [Oya]}
+
+\addplot[
+color=blue,
+mark=square*,
+]
+table[x=eta_mu,y=avg_uf_acc]
+{results_for_latex/eta_mu.txt};
+\addlegendentry{\uf}
+
+\addplot[
+color=violet,
+mark=*,
+]
+table[x=eta_mu,y=avg_ufid_acc]
+{results_for_latex/eta_mu.txt};
+\addlegendentry{\ufid}
+
+\addplot[
+color=black,
+mark=diamond*,
+]
+table[x=eta_mu,y=avg_uf_acc]
+{results_for_latex/eta_mu.txt};
+\addlegendentry{\spuf}
+
+\addplot[
+color=teal,
+mark=triangle*,
+]
+table[x=eta_mu,y=avg_spufid_acc]
+{results_for_latex/eta_mu.txt};
+\addlegendentry{\spufid}
+\end{axis}
+\end{tikzpicture}
+(a) Enron dataset
+\end{minipage}\hspace{12mm}%
+\begin{minipage}{0.45\columnwidth}
+\centering
+\begin{tikzpicture}[scale=0.7]
+\begin{axis}[
+    xlabel = Avg. Number of Searches and Updates per Week ($\Bar{\eta}$\text{,} $\Bar{\mu}$),
+    ylabel = Attack Accuracy,
+    xtick={10,250,500,750,1000},
+    xticklabels={$10$,$250$,$500$,$750$,$1000$},
+    legend cell align={left},
+    legend style={legend pos=south east}
+]
+\addplot[
+color=orange,
+mark=x,
+]
+table[x=eta_mu,y=avg_s_acc]
+{results_for_latex/lucene.txt};
+\addlegendentry{Search Frequency [Oya]}
+\addplot[
+color=blue,
+mark=square*,
+]
+table[x=eta_mu,y=avg_uf_acc]
+{results_for_latex/lucene.txt};
+\addlegendentry{\uf}
+\addplot[
+color=violet,
+mark=*,
+]
+table[x=eta_mu,y=avg_ufid_acc]
+{results_for_latex/lucene.txt};
+\addlegendentry{\ufid}
+\addplot[
+color=black,
+mark=diamond*,
+]
+table[x=eta_mu,y=avg_spuf_acc]
+{results_for_latex/lucene.txt};
+\addlegendentry{\spuf}
+\addplot[
+color=teal,
+mark=triangle*,
+]
+table[x=eta_mu,y=avg_spufid_acc]
+{results_for_latex/lucene.txt};
+\addlegendentry{\spufid}
+\end{axis}
+\end{tikzpicture}
+(b) Lucene dataset
+\end{minipage}%
+\caption{Effect of increasing number of searches and updates per week in both the auxiliary and observation periods.}
+\label{fig-eta-mu}
+\end{figure}
+
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[scale=0.7]
+\begin{axis}[
+    xlabel = Avg. Number of Searches and Updates per Week during Aux. Period ($\Bar{\eta}$\text{,} $\Bar{\mu}$),
+    ylabel = Attack Accuracy,
+    xtick={10,100,200,300,400,500},
+    xticklabels={$10$,$100$,$200$,$300$,$400$,$500$},
+    ymin=0,
+    legend cell align={left},
+    legend style={legend pos=south east}
+]
+\addplot[
+color=orange,
+mark=x,
+]
+table[x=eta_mu,y=avg_s_acc]
+{results_for_latex/aux.txt};
+\addlegendentry{Search Frequency [Oya]}
+
+\addplot[
+color=blue,
+mark=square*,
+]
+table[x=eta_mu,y=avg_uf_acc]
+{results_for_latex/aux.txt};
+\addlegendentry{\uf}
+
+\addplot[
+color=violet,
+mark=*,
+]
+table[x=eta_mu,y=avg_ufid_acc]
+{results_for_latex/aux.txt};
+\addlegendentry{\ufid}
+
+\addplot[
+color=black,
+mark=diamond*,
+]
+table[x=eta_mu,y=avg_spuf_acc]
+{results_for_latex/aux.txt};
+\addlegendentry{\spuf}
+
+\addplot[
+color=teal,
+mark=triangle*,
+]
+table[x=eta_mu,y=avg_spufid_acc]
+{results_for_latex/aux.txt};
+\addlegendentry{\spufid}
+\end{axis}
+\end{tikzpicture}
+\caption{Effect of increasing auxiliary data on attack accuracy. During the auxiliary period, $\Bar{\eta}$ and $\Bar{\mu}$ are set to the values shown on the x-axis. During the observation period, $\Bar{\eta}$, $\Bar{\mu} = 100$ for all experiments.}
+\label{fig-all-aux}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\begin{minipage}{0.45\columnwidth}
+\centering
+\begin{tikzpicture}[scale=0.7]
+\begin{axis}[
+    xlabel = Avg. Number of Searches and Updates per Week ($\Bar{\eta}$\text{,} $\Bar{\mu}$),
+    ylabel = Attack Accuracy,
+    xtick={10,250,500,750,1000},
+    xticklabels={$10$,$250$,$500$,$750$,$1000$},
+    ymin=-.1,
+    legend cell align={left},
+    legend style={legend pos=south east, nodes={scale=0.8, transform shape}},
+    legend columns=2
+]
+\addplot[
+color=blue,
+mark=*,
+]
+table[x=eta_mu,y=avg_uf_acc]
+{results_for_latex/eta_mu.txt};
+\addlegendentry{\uf $n=100$}
+
+\addplot[
+color=blue,
+mark=triangle,
+]
+table[x=eta_mu,y=avg_uf_acc]
+{results_for_latex/eta_mu.txt};
+\addlegendentry{\spuf $n=100$}
+
+\addplot[
+color=black,
+mark=*,
+]
+table[x=eta_mu,y=avg_uf_acc]
+{results_for_latex/eta_mu_250.txt};
+
+\addlegendentry{\uf $n=250$}
+
+\addplot[
+color=black,
+mark=triangle*,
+]
+table[x=eta_mu,y=avg_spuf_acc]
+{results_for_latex/eta_mu_250.txt};
+
+\addlegendentry{\spuf $n=250$}
+
+\addplot[
+color=brown,
+mark=*,
+]
+table[x=eta_mu,y=avg_uf_acc]
+{results_for_latex/eta_mu_500.txt};
+\addlegendentry{\uf $n=500$}
+
+\addplot[
+color=brown,
+mark=triangle*,
+]
+table[x=eta_mu,y=avg_spuf_acc]
+{results_for_latex/eta_mu_500.txt};
+\addlegendentry{\spuf $n=500$}
+
+\end{axis}
+\end{tikzpicture}
+(a) \uf Attacks
+\end{minipage}\hspace{12mm}%
+\begin{minipage}{0.45\columnwidth}
+\centering
+\begin{tikzpicture}[scale=0.7]
+\begin{axis}[
+    xlabel = Avg. Number of Searches and Updates per Week ($\Bar{\eta}$\text{,} $\Bar{\mu}$),
+    ylabel = Attack Accuracy,
+    xtick={10,250,500,750,1000},
+    xticklabels={$10$,$250$,$500$,$750$,$1000$},
+    ymin=-.19,
+    legend cell align={left},
+    legend style={legend pos=south east, nodes={scale=0.75, transform shape}},
+    legend columns=2
+]
+\addplot[
+color=violet,
+mark=*,
+]
+table[x=eta_mu,y=avg_ufid_acc]
+{results_for_latex/eta_mu.txt};
+\addlegendentry{\ufid $n=100$}
+
+\addplot[
+color=violet,
+mark=triangle*,
+]
+table[x=eta_mu,y=avg_spufid_acc]
+{results_for_latex/eta_mu.txt};
+\addlegendentry{\spufid $n=100$}
+
+\addplot[
+color=teal,
+mark=*,
+]
+table[x=eta_mu,y=avg_ufid_acc]
+{results_for_latex/eta_mu_250.txt};
+
+\addlegendentry{\ufid $n=250$}
+
+\addplot[
+color=teal,
+mark=triangle*,
+]
+table[x=eta_mu,y=avg_spufid_acc]
+{results_for_latex/eta_mu_250.txt};
+
+\addlegendentry{\spufid $n=250$}
+
+\addplot[
+color=red,
+mark=*,
+]
+table[x=eta_mu,y=avg_ufid_acc]
+{results_for_latex/eta_mu_500.txt};
+\addlegendentry{\ufid $n=500$}
+
+\addplot[
+color=red,
+mark=triangle*,
+]
+table[x=eta_mu,y=avg_spufid_acc]
+{results_for_latex/eta_mu_500.txt};
+\addlegendentry{\spufid $n=500$}
+
+\end{axis}
+\end{tikzpicture}
+(b) \ufid Attacks
+\end{minipage}
+\caption{Effect of keyword universe size on attack accuracy.}
+\label{fig-num-kws}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[scale=0.7]
+\begin{axis}[
+    xmode=log,
+    ymode=log,
+    log ticks with fixed point,
+    xlabel = Number of Files in Database ($N_D$),
+    ylabel = Runtime (s),
+    xtick={1,10,100,1000,10000,100000},
+    xticklabels={$1$,$10$,$100$,$1000$,$10000$,$100000$},
+    legend cell align={left},
+    legend style={legend pos=north west}
+]
+\addplot[
+color=teal,
+mark=triangle*,
+]
+table[x=num_files,y=avg_runtime]
+{results_for_latex/num_files_runtime.txt};
+\addlegendentry{\spufid}
+\end{axis}
+\end{tikzpicture}
+\caption{Effect of database size on runtime of \ufid Attacks.}
+\label{fig-num-files-runtime}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\begin{minipage}{0.45\columnwidth}
+\centering
+\begin{tikzpicture}[scale=0.7]
+\begin{axis}[
+    xmode=log,
+    log ticks with fixed point,
+    xmin=0,
+    xmax=150,
+    ymin=.25,
+    ymax=1,
+    xlabel=Number of Files in Database ($N_D$),
+    ylabel=Attack Accuracy,
+    xtick={1,10,50,100},
+    xticklabels={$1$,$10$,$50$,$100$},
+    legend cell align={left},
+    legend style={legend pos=north west}
+]
+\addplot[
+color=violet,
+mark=*,
+]
+table[x=num_files,y=avg_ufid_acc]
+{results_for_latex/num_files_small.txt};
+\addlegendentry{\ufid}
+\addplot[
+color=teal,
+mark=triangle*,
+]
+table[x=num_files,y=avg_spufid_acc]
+{results_for_latex/num_files_small.txt};
+\addlegendentry{\spufid}
+% Constant value comes from eta_mu.txt[100][avg_uf_acc]
+\addplot[mark=none, blue, thick, dashed, samples=2, domain=1:150]{0.335412927497991};
+\addlegendentry{\uf}
+% Constant value comes from eta_mu.txt[100][avg_spuf_acc]
+\addplot[mark=none, black, samples=2, domain=1:150]{0.4022627337769131};
+\addlegendentry{\spuf}
+\end{axis}
+\end{tikzpicture}
+(a) Small database
+\end{minipage}\hspace{12mm}%
+\begin{minipage}{0.45\columnwidth}
+\centering
+\begin{tikzpicture}[scale=0.7]
+\begin{axis}[
+    xlabel = Number of Files in Database ($N_D$) ($\times 10^3$),
+    ylabel = Attack Accuracy,
+    xtick={30000,40000,50000,60000,70000,80000,90000,100000},
+    scaled x ticks = false,
+    % x tick label style={/pgf/number format/fixed},
+    xticklabels={$30$,$40$,$50$,$60$,$70$,$80$,$90$,$100$},
+    legend cell align={left},
+    legend style={legend pos=south west, nodes={scale=0.9, transform shape}}
+]
+\addplot[
+color=violet,
+mark=*,
+]
+table[x=num_files,y=avg_ufid_acc]
+{results_for_latex/num_files_large.txt};
+\addlegendentry{\ufid}
+\addplot[
+color=teal,
+mark=triangle*,
+]
+table[x=num_files,y=avg_spufid_acc]
+{results_for_latex/num_files_large.txt};
+\addlegendentry{\spufid}
+% Constant value comes from eta_mu.txt[100][avg_s_acc]
+\addplot[mark=none, orange, samples=2, domain=30000:100000]{0.3504681450608278};
+\addlegendentry{Search Frequency [Oya]}
+\end{axis}
+\end{tikzpicture}
+%\label{fig-num-files2}
+(b) Large database
+\end{minipage}
+\caption{Effect of adding files to a database on accuracy of \ufid Attacks.}
+\label{fig-num-files}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\begin{minipage}{0.45\columnwidth}
+\centering
+\begin{tikzpicture}[scale=0.7]
+\begin{axis}[
+    xlabel = Standard Deviation ($d$) of File Selection Distribution,
+    ylabel = Attack Accuracy,
+    ymin=0,
+    ymax=1,
+    xtick={0,60,120,180,240,300,360,420,480,540,600},
+    xticklabels={$0$,,$120$,,$240$,,$360$,,$480$,,$600$},
+    legend cell align={left},
+    legend style={legend pos=north east}
+]
+\addplot[
+color=violet,
+mark=*,
+]
+table[x=std_dev,y=avg_ufid_acc]
+{results_for_latex/dist.txt};
+\addlegendentry{\ufid}
+\addplot[
+color=teal,
+mark=diamond*,
+]
+table[x=std_dev,y=avg_spufid_acc]
+{results_for_latex/dist.txt};
+\addlegendentry{\spufid}
+% Constant value comes from eta_mu.txt[100][avg_s_acc]
+\addplot[mark=none, orange, samples=2, domain=0:600]{0.3504681450608278};
+\addlegendentry{Search Frequency [Oya]}
+\end{axis}
+\end{tikzpicture}
+(a) Normal distribution
+\end{minipage}\hspace{12mm}%
+\begin{minipage}{0.45\columnwidth}
+\centering
+\begin{tikzpicture}[scale=0.7]
+\begin{axis}[
+    xlabel = Avg. Number of Searches and Updates per Week ($\Bar{\eta}$\text{,} $\Bar{\mu}$),
+    ylabel = Attack Accuracy,
+    xtick={10,250,500,750,1000},
+    xticklabels={$10$,$250$,$500$,$750$,$1000$},
+    ymin=-.19,
+    legend cell align={left},
+    legend style={legend pos=south east, nodes={scale=0.8, transform shape}},
+    legend columns=2
+]
+\addplot[
+color=violet,
+mark=*,
+]
+table[x=eta_mu,y=avg_ufid_acc_100]
+{results_for_latex/zipf.txt};
+\addlegendentry{\ufid $n=100$}
+
+\addplot[
+color=teal,
+mark=triangle*,
+]
+table[x=eta_mu,y=avg_spufid_acc_100]
+{results_for_latex/zipf.txt};
+\addlegendentry{\spufid $n=100$}
+
+\addplot[
+color=red,
+mark=*,
+]
+table[x=eta_mu,y=avg_ufid_acc_250]
+{results_for_latex/zipf.txt};
+\addlegendentry{\ufid $n=250$}
+
+\addplot[
+color=green,
+mark=triangle*,
+]
+table[x=eta_mu,y=avg_spufid_acc_250]
+{results_for_latex/zipf.txt};
+\addlegendentry{\spuf $n=250$}
+
+\addplot[
+color=black,
+mark=*,
+]
+table[x=eta_mu,y=avg_ufid_acc_500]
+{results_for_latex/zipf.txt};
+\addlegendentry{\ufid $n=500$}
+
+\addplot[
+color=brown,
+mark=triangle*,
+]
+table[x=eta_mu,y=avg_spufid_acc_500]
+{results_for_latex/zipf.txt};
+\addlegendentry{\spufid $n=500$}
+
+\end{axis}
+\end{tikzpicture}
+(b) Zipfian distribution
+\end{minipage}
+\caption{Effect of file selection distribution on accuracy of \ufid attacks.}
+\label{fig-dists}
+\end{figure}
+
+\end{document}

@@ -1,0 +1,88 @@
+# An x indicates to use a default, like num_files = len(dataset)
+# EXP_NAME, LUCENE_EXP, NUM_SEARCHES, NUM_UPDATES, NUM_KEYWORDS, S_DIFF, UP_DIFF, NUM_FILES, DIST_SCALE, UPDATE_FILE_ID_ONLY, AUX_EXP, ZIPF_EXP
+eta_mu_100_10, False, 10, 10, 100, 0, 0, x, x, False, False, False
+eta_mu_100_100, False, 100, 100, 100, 0, 0, x, x, False, False, False
+eta_mu_100_250, False, 250, 250, 100, 0, 0, x, x, False, False, False
+eta_mu_100_500, False, 500, 500, 100, 0, 0, x, x, False, False, False
+eta_mu_100_750, False, 750, 750, 100, 0, 0, x, x, False, False, False
+eta_mu_100_1000, False, 1000, 1000, 100, 0, 0, x, x, False, False, False
+#-----------------------------------------------------------
+eta_mu_250_10, False, 10, 10, 250, 0, 0, x, x, False, False, False
+eta_mu_250_100, False, 100, 100, 250, 0, 0, x, x, False, False, False
+eta_mu_250_250, False, 250, 250, 250, 0, 0, x, x, False, False, False
+eta_mu_250_500, False, 500, 500, 250, 0, 0, x, x, False, False, False
+eta_mu_250_750, False, 750, 750, 250, 0, 0, x, x, False, False, False
+eta_mu_250_1000, False, 1000, 1000, 250, 0, 0, x, x, False, False, False
+#-----------------------------------------------------------
+eta_mu_500_10, False, 10, 10, 500, 0, 0, x, x, False, False, False
+eta_mu_500_100, False, 100, 100, 500, 0, 0, x, x, False, False, False
+eta_mu_500_250, False, 250, 250, 500, 0, 0, x, x, False, False, False
+eta_mu_500_500, False, 500, 500, 500, 0, 0, x, x, False, False, False
+eta_mu_500_750, False, 750, 750, 500, 0, 0, x, x, False, False, False
+eta_mu_500_1000, False, 1000, 1000, 500, 0, 0, x, x, False, False, False
+#-----------------------------------------------------------
+lucene_10, True, 10, 10, 100, 0, 0, x, x, False, False, False
+lucene_100, True, 100, 100, 100, 0, 0, x, x, False, False, False
+lucene_250, True, 250, 250, 100, 0, 0, x, x, False, False, False
+lucene_500, True, 500, 500, 100, 0, 0, x, x, False, False, False
+lucene_750, True, 750, 750, 100, 0, 0, x, x, False, False, False
+lucene_1000, True, 1000, 1000, 100, 0, 0, x, x, False, False, False
+#-----------------------------------------------------------
+zipf_nkw_100_10, False, 10, 10, 100, 0, 0, x, x, True, False, True
+zipf_nkw_100_100, False, 100, 100, 100, 0, 0, x, x, True, False, True
+zipf_nkw_100_250, False, 250, 250, 100, 0, 0, x, x, True, False, True
+zipf_nkw_100_500, False, 500, 500, 100, 0, 0, x, x, True, False, True
+zipf_nkw_100_750, False, 750, 750, 100, 0, 0, x, x, True, False, True
+zipf_nkw_100_1000, False, 1000, 1000, 100, 0, 0, x, x, True, False, True
+#-----------------------------------------------------------
+zipf_nkw_250_10, False, 10, 10, 250, 0, 0, x, x, True, False, True
+zipf_nkw_250_100, False, 100, 100, 250, 0, 0, x, x, True, False, True
+zipf_nkw_250_250, False, 250, 250, 250, 0, 0, x, x, True, False, True
+zipf_nkw_250_500, False, 500, 500, 250, 0, 0, x, x, True, False, True
+zipf_nkw_250_750, False, 750, 750, 250, 0, 0, x, x, True, False, True
+zipf_nkw_250_1000, False, 1000, 1000, 250, 0, 0, x, x, True, False, True
+#-----------------------------------------------------------
+zipf_nkw_500_10, False, 10, 10, 500, 0, 0, x, x, True, False, True
+zipf_nkw_500_100, False, 100, 100, 500, 0, 0, x, x, True, False, True
+zipf_nkw_500_250, False, 250, 250, 500, 0, 0, x, x, True, False, True
+zipf_nkw_500_500, False, 500, 500, 500, 0, 0, x, x, True, False, True
+zipf_nkw_500_750, False, 750, 750, 500, 0, 0, x, x, True, False, True
+zipf_nkw_500_1000, False, 1000, 1000, 500, 0, 0, x, x, True, False, True
+#-----------------------------------------------------------
+num_files_small_1, False, 100, 100, 100, 0, 0, 1, x, True, False, False
+num_files_small_10, False, 100, 100, 100, 0, 0, 10, x, True, False, False
+num_files_small_50, False, 100, 100, 100, 0, 0, 50, x, True, False, False
+num_files_small_100, False, 100, 100, 100, 0, 0, 100, x, True, False, False
+#-----------------------------------------------------------
+num_files_large_30k, False, 100, 100, 100, 0, 0, 30000, x, True, False, False
+num_files_large_40k, False, 100, 100, 100, 0, 0, 40000, x, True, False, False
+num_files_large_50k, False, 100, 100, 100, 0, 0, 50000, x, True, False, False
+num_files_large_60k, False, 100, 100, 100, 0, 0, 60000, x, True, False, False
+num_files_large_70k, False, 100, 100, 100, 0, 0, 70000, x, True, False, False
+num_files_large_80k, False, 100, 100, 100, 0, 0, 80000, x, True, False, False
+num_files_large_90k, False, 100, 100, 100, 0, 0, 90000, x, True, False, False
+num_files_large_100k, False, 100, 100, 100, 0, 0, 100000, x, True, False, False
+#-----------------------------------------------------------
+# Note: can reuse num_files_small for 1, 10, and 100, and num_files_large for 100000
+num_files_runtime_1000, False, 100, 100, 100, 0, 0, 1000, x, True, False, False
+num_files_runtime_10000, False, 100, 100, 100, 0, 0, 10000, x, True, False, False
+#-----------------------------------------------------------
+dist_0, False, 100, 100, 100, 0, 0, x, 0, True, False, False
+dist_60, False, 100, 100, 100, 0, 0, x, 60, True, False, False
+dist_120, False, 100, 100, 100, 0, 0, x, 120, True, False, False
+dist_180, False, 100, 100, 100, 0, 0, x, 180, True, False, False
+dist_240, False, 100, 100, 100, 0, 0, x, 240, True, False, False
+dist_300, False, 100, 100, 100, 0, 0, x, 300, True, False, False
+dist_360, False, 100, 100, 100, 0, 0, x, 360, True, False, False
+dist_420, False, 100, 100, 100, 0, 0, x, 420, True, False, False
+dist_480, False, 100, 100, 100, 0, 0, x, 480, True, False, False
+dist_540, False, 100, 100, 100, 0, 0, x, 540, True, False, False
+dist_600, False, 100, 100, 100, 0, 0, x, 600, True, False, False
+#-----------------------------------------------------------
+aux_10, False, 100, 100, 100, 90, 90, x, x, False, True, False
+# can reuse results from eta_mu_100_100 to save time; attack is deterministic, settings are same
+# aux_0, False, 100, 100, 100, 0, 0, x, x, False, True, False
+aux_200, False, 100, 100, 100, -100, -100, x, x, False, True, False
+aux_300, False, 100, 100, 100, -200, -200, x, x, False, True, False
+aux_400, False, 100, 100, 100, -300, -300, x, x, False, True, False
+aux_500, False, 100, 100, 100, -400, -400, x, x, False, True, False
