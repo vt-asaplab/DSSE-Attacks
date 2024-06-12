@@ -39,6 +39,6 @@ Compile `main.tex` and view the results of the graphs. We use constant values in
 
 We use Linux-style paths which may break on Windows. We recommend running the experiment code in a fairly strong Linux environment. Multithreading could speed up the experiments, but we do not have plans to implement it.
 
-We have wrapped the logic used to generate our paper's experimental results to automate our previously-tedious workflow; the result is the code in this repo. The intent and make it user-friendly for readers to verify our results. We have done some testing to make sure that the code in this repository works, but we expect this process to have introduced some bugs. If you run into bugs or crashes, please don't spend your time trying to fix them - report them to jacobshalt(at)vt(dot)edu and we will do our best to fix them promptly.
+We have wrapped the logic used to generate our paper's experimental results to automate our previously-tedious workflow; the result is the code in this repo. The intent and make it user-friendly for readers to verify our results. We have done some testing to make sure that the code in this repository works, but we expect this process to have introduced some bugs. If you run into bugs or crashes, please don't spend your time trying to fix them - report them to `jacobshalt(at)vt(dot)edu` and we will do our best to fix them promptly.
 
 This code may be used for academic research only. All other uses are prohibited.
